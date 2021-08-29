@@ -1,2 +1,4 @@
-# kafka-monitoring
-This repo is created how to monitor the confluent kafka 
+# Kafka Monitoring
+This repo is created monitor the confluent kafka connectors and Topics
+
+
