@@ -52,66 +52,50 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved Configurations</span>
-                      </h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="home"></span>{{Config.Name}}
-                            </a>
-                        </li>
-                    </ul>
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                        <span>Saved Queries</span>
-                      </h6>
-                      <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="home"></span>{{QueryConfig.Name}}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            
           
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Connectors</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <!-- <div class="btn-group mr-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                        </div> -->
-                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span> This week
-                        </button> -->
-                    </div>
-                </div>
-
-                
+            <main role="main" class="col-md-9  col-lg-10 px-4">
                 <!-- <h2>Logs</h2> -->
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
-                                <th ng-repeat="item in Cols">
-                                    {{item.name}}
+                                <th >
+                                    #
                                 </th>
-
+                                <th >
+                                    Connector Name
+                                </th>
+                                <th >
+                                    Status
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="item in rows">
-                                <td ng-repeat="sb in item">
-                                    {{sb}}
+                            <tr >
+                                <td>
+                                    1
+                                </td>
+                                <td >
+                                    Some Connectors
+                                </td>
+                                <td>
+                                    Running
                                 </td>
                             </tr>
-
-                        </tbody>
+                            <tr >
+                                <td>
+                                    2
+                                </td>
+                                <td >
+                                    Some Connectors 2
+                                </td>
+                                <td>
+                                    Running 2
+                                </td>
+                            </tr>
+                                                    </tbody>
                     </table>
                     <img src="loader.gif" style="position:absolute; top: 50%; left: 32%; display: none;" id="loader" />
                 </div>
