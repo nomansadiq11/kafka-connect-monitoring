@@ -47,7 +47,7 @@
 
 <body ng-app="AppInsights" ng-controller="AppInsightsController" ng-init="fn_GetAllConfigs();fn_LoadCacheValues()">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DevOps - OSN</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Kafka Monitoring</a>
     </nav>
 
     <div class="container-fluid">
@@ -80,7 +80,7 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Application Insights Logs</h1>
+                    <h1 class="h2">Connectors</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <!-- <div class="btn-group mr-2">
                             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -92,34 +92,7 @@
                     </div>
                 </div>
 
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="API Key" ng-model="APIKey">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Application ID" ng-model="AppID">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <button type="button" class="btn btn-primary" ng-click="fn_SaveConfiguration()">Save Cookies</button>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Write Query</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" ng-model="query"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary" ng-click="fn_GetLogs()">Search Logs</button>
-                        <button type="button" class="btn btn-primary" ng-click="fn_SaveQuery()">Save Query Cookies</button>
-                    </div>
-
-                </form>
-
+                
                 <!-- <h2>Logs</h2> -->
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
