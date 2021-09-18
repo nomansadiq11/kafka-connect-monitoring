@@ -1,11 +1,11 @@
 
 
-var ServiceURL = "https://api.applicationinsights.io/v1/apps/";
+var ServiceURL = "http://cp-kafka-connect.sandbox.grid2.maf.ae/";
 
-var app = angular.module("AppInsights", ['ngCookies']);
+var app = angular.module("KafkaApp", ['ngCookies']);
 
 
-app.service("AppInsightsService", function ($http) {
+app.service("kafkaService", function ($http) {
 
 
     this.PostToService = function (param, MethodName, AppID, APIKey) {
@@ -30,13 +30,8 @@ app.service("AppInsightsService", function ($http) {
 
 
 
-app.controller("AppInsightsController", ['$scope', '$cookies', '$cookieStore', '$window' ,'AppInsightsService', function($scope, $cookies, $cookieStore, $window, AppInsightsService) {
+app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$window' ,'AppInsightsService', function($scope, $cookies, $cookieStore, $window, AppInsightsService) {
 
-
-    
-
-
-    
 
 
     $scope.fn_SaveConfiguration = function(){
