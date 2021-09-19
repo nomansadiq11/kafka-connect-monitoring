@@ -29,6 +29,16 @@ app.service("kafkaService", function ($http) {
         return response;
     }
 
+    this.readfile = function (filename) {
+        var response = $http({
+            method: "get",
+            url: filename,
+            data: '',
+            dataType: "json"
+        });
+        return response;
+    }
+
 
 
 });
@@ -73,7 +83,37 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
         });
     }
 
+    $scope.fn_getconntfile = function () {
 
+        debugger;
+
+        
+                
+       
+
+        $('#loader').show(); 
+
+
+        var ResponseRegistration = kafkaService.readfile("connectors.json");
+        ResponseRegistration.then(function (msg) {
+            
+            $scope.connectors = msg.data;
+            
+
+            $('#loader').hide(); 
+
+            
+        }, function (msg) {
+
+            console.log('Error: AppInsightsService');
+            $('#loader').hide(); 
+        });
+    }
+
+
+   
+
+    
    
 
     
