@@ -1,0 +1,10 @@
+version: "2"
+services:
+  webserver1:
+    container_name: webserver1
+    build:
+      context: ./app/
+    volumes:
+      - ./app/:/usr/share/nginx/html/
+    ports:
+      - "3002:80"
