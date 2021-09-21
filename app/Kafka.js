@@ -1,6 +1,6 @@
 
 
-var ServiceURL = "http://cp-kafka-connect.sandbox.grid2.maf.ae/";
+var ServiceURL = "cp-kafka-connect.grid.svc.cluster.local:8083/";
 
 var app = angular.module("KafkaApp", ['ngCookies']);
 
