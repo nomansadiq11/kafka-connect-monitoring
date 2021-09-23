@@ -6,13 +6,7 @@ services:
       context: ./app/
     volumes:
       - ./app/:/usr/share/nginx/html/
-      - ./app/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "3002:80"
-      
-  proxy:
-    image: nginx:alpine
-    ports:
-      - 8080:80
-    volumes:
-      - ./default.conf.template:/etc/nginx/templates/default.conf.template
+    networks:
+      - confluentkafka-docker_default

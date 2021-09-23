@@ -1,6 +1,6 @@
 
 
-var ServiceURL = "localhost:8080/";
+var ServiceURL = "http://localhost:8083/";
 
 var app = angular.module("KafkaApp", ['ngCookies']);
 
@@ -23,7 +23,6 @@ app.service("kafkaService", function ($http) {
             method: "post",
             url: ServiceURL +  MethodName,
             data: '',
-            headers: {'Access-Control-Allow-Origin': '*'},
             dataType: "json"
         });
         return response;
@@ -94,7 +93,7 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
         $('#loader').show(); 
 
 
-        var ResponseRegistration = kafkaService.readfile("connectors.json");
+        var ResponseRegistration = kafkaService.readfile("/dummdata/status.json");
         ResponseRegistration.then(function (msg) {
             
             $scope.connectors = msg.data;
