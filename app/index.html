@@ -76,21 +76,31 @@
                                     Worker ID
                                 </th>
                                 <th>
-                                    Tasks
+                                    Total Tasks
                                 </th>
                                 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="item in connectors">
+                            <tr ng-repeat="item in connectorwithdetails">
                                 <td>
                                     {{$index + 1 }}
                                 </td>
                                 <td >
-                                    {{item}}
+                                    {{item.name}}
                                 </td>
                                 <td>
-                                    Running
+                                    {{item.state}}
+                                </td>
+                                <td>
+                                    {{item.worker_id}}
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr ng-repeat="task in item.tasks">
+                                            <td>task {{task.id}} : {{task.state}} </td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                             

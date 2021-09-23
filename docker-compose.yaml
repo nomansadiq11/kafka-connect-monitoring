@@ -8,5 +8,3 @@ services:
       - ./app/:/usr/share/nginx/html/
     ports:
       - "3002:80"
-    networks:
-      - confluentkafka-docker_default
