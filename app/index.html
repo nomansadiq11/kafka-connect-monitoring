@@ -98,7 +98,8 @@
                                 <td>
                                     <table>
                                         <tr ng-repeat="task in item.tasks">
-                                            <td>task {{task.id}} : {{task.state}} </td>
+                                            <td ng-if="task.state == 'RUNNING'">task {{task.id}} : {{task.state}} </td>
+                                            <td ng-if="task.state == 'FAILED'"> <a href="#" ng-click="fn_showtrace(task.trace)"  >task {{task.id}} : {{task.state}}</a>  </td>
                                         </tr>
                                     </table>
                                 </td>

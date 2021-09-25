@@ -108,6 +108,7 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
                 {
                     "state" : $scope.statusdata.tasks[i].state,
                     "id" : $scope.statusdata.tasks[i].id,
+                    "trace" : $scope.statusdata.tasks[i].trace
                 }
 
                 $scope.taskslist.push($scope.task);
@@ -169,6 +170,9 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
     }
 
 
+    $scope.fn_showtrace = function(msg) {
+        alert(msg); 
+    }
    
 
     
