@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "kafka-monitoring.fullname" . }}
+  name: {{ include "km.fullname" . }}
   labels:
-    {{- include "kafka-monitoring.labels" . | nindent 4 }}
+    {{- include "km.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "kafka-monitoring.selectorLabels" . | nindent 6 }}
+      {{- include "km.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "kafka-monitoring.selectorLabels" . | nindent 8 }}
+        {{- include "km.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "kafka-monitoring.serviceAccountName" . }}
+      serviceAccountName: {{ include "km.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

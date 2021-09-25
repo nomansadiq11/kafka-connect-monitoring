@@ -20,10 +20,9 @@ app.service("kafkaService", function ($http) {
 
     this.PostToServiceWithoutParam = function (MethodName) {
         var response = $http({
-            method: "post",
+            method: "get",
             url: ServiceURL +  MethodName,
             data: '',
-            headers: {'Access-Control-Allow-Origin': '*'},
             dataType: "json"
         });
         return response;
@@ -52,17 +51,11 @@ app.service("kafkaService", function ($http) {
 
 app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$window' ,'kafkaService', function($scope, $cookies, $cookieStore, $window, kafkaService) {
 
+    $scope.connectorwithdetails  = []; 
 
     $scope.fn_GetConnectorsList = function () {
 
         debugger;
-
-        
-                
-        var param =            
-                {
-                    "query": $scope.query
-                }; 
 
         $('#loader').show(); 
 
@@ -71,6 +64,18 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
         ResponseRegistration.then(function (msg) {
             
             $scope.connectors = msg.data;
+            
+
+            angular.forEach($scope.connectors, function(value, key){
+
+                $scope.fn_GetConnectorStatus(value)
+
+                console.log($scope.connectorstatus);
+
+                
+                
+             });
+
             
 
             $('#loader').hide(); 
@@ -82,6 +87,60 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
             $('#loader').hide(); 
         });
     }
+
+    $scope.fn_GetConnectorStatus = function (connectorname) {
+
+        debugger;
+
+        $('#loader').show(); 
+
+
+        var ResponseRegistration = kafkaService.PostToServiceWithoutParam("connectors/" + connectorname + "/status");
+        ResponseRegistration.then(function (msg) {
+            
+            $scope.statusdata = msg.data;
+
+            $scope.taskslist = []; 
+
+            for(var i = 0; i<$scope.statusdata.tasks.length; i++)
+            {
+                $scope.task = 
+                {
+                    "state" : $scope.statusdata.tasks[i].state,
+                    "id" : $scope.statusdata.tasks[i].id,
+                    "trace" : $scope.statusdata.tasks[i].trace
+                }
+
+                $scope.taskslist.push($scope.task);
+            }
+
+             
+
+            $scope.connector = 
+            {
+
+                "name" : $scope.statusdata.name,
+                "state" : $scope.statusdata.connector.state,
+                "worker_id": $scope.statusdata.connector.worker_id,
+                "totaltasks" : $scope.statusdata.tasks.length,
+                "tasks": $scope.taskslist
+            }
+
+            $scope.connectorwithdetails.push($scope.connector); 
+
+            $('#loader').hide(); 
+
+            
+        }, function (msg) {
+
+            console.log('Error: AppInsightsService');
+            $('#loader').hide(); 
+        });
+
+        return $scope.statusdata;
+    }
+
+
 
     $scope.fn_getconntfile = function () {
 
@@ -94,7 +153,7 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
         $('#loader').show(); 
 
 
-        var ResponseRegistration = kafkaService.readfile("connectors.json");
+        var ResponseRegistration = kafkaService.readfile("/dummdata/status.json");
         ResponseRegistration.then(function (msg) {
             
             $scope.connectors = msg.data;
@@ -111,6 +170,9 @@ app.controller("kafkaController", ['$scope', '$cookies', '$cookieStore', '$windo
     }
 
 
+    $scope.fn_showtrace = function(msg) {
+        alert(msg); 
+    }
    
 
     
