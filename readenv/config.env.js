@@ -1,0 +1,1 @@
+var kafka_connect_url = "someurl"
