@@ -1,6 +1,5 @@
-# Kafka Monitoring
-This repo is created monitor the confluent kafka connectors and Topics
+# Kafka Connector Monitoring
+This repo is created monitor the  kafka connectors and their tasks, we can see connector state and tasks states and the trace message. 
 
-- Connectors
-- Topics 
-- Connectors Actions
+This application developed with simple AngularJS framwork. 
+
