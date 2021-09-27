@@ -7,13 +7,7 @@ CMD python3 env.py
 
 
 
-
 FROM nginx:latest
 COPY . /usr/share/nginx/html
 
-RUN apt-get update -y
-RUN apt-get install python3.6 -y
-
-  
-# FROM httpd:latest
-# COPY . /usr/local/apache2/htdocs/
+COPY --from=base /usr/src/app/config.js /usr/share/nginx/html
