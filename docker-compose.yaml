@@ -8,3 +8,5 @@ services:
       - ./app/:/usr/share/nginx/html/
     ports:
       - "3002:80"
+    environment:
+      - kafka=http://cp-kafka-connect.sandbox.grid2.maf.ae/

@@ -1,14 +1,7 @@
-FROM python:3 as builder 
-WORKDIR /usr/src/app
-
-
-
 FROM nginx:latest
 COPY . /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
-RUN apt-get update -y
-RUN apt-get install python3.6 -y
+RUN sed -i -e "s|someurl|$kafka|g" config.js
 
-  
-# FROM httpd:latest
-# COPY . /usr/local/apache2/htdocs/
+
