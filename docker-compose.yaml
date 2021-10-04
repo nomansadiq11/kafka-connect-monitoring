@@ -9,4 +9,4 @@ services:
     ports:
       - "3002:80"
     environment:
-      - kafka=http://cp-kafka-connect.sandbox.grid2.maf.ae/
+      - kafka=https://127.0.0.1:9978/
