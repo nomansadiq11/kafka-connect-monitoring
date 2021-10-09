@@ -8,3 +8,5 @@ services:
       - ./app/:/usr/share/nginx/html/
     ports:
       - "3002:80"
+    environment:
+      - kafka=https://127.0.0.1:9978/

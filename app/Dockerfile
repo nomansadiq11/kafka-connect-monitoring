@@ -1,6 +1,6 @@
 FROM nginx:latest
 COPY . /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
-  
-# FROM httpd:latest
-# COPY . /usr/local/apache2/htdocs/
+# Read environment variable
+RUN sed -i -e "s|someurl|$kafka|g" config.js
