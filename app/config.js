@@ -1,1 +1,1 @@
-var kafka_connect_url = "https://127.0.0.1:9978/"
+var kafka_connect_url = "http://localhost:8083/"
