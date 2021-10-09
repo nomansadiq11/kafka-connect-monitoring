@@ -4,9 +4,10 @@ services:
     container_name: webserver1
     build:
       context: ./app/
+      args:
+        - kafka_url=http://localhost:8083/
     volumes:
       - ./app/:/usr/share/nginx/html/
     ports:
       - "3002:80"
-    environment:
-      - kafka=https://127.0.0.1:9978/
+    
