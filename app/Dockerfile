@@ -1,7 +1,10 @@
 
 FROM nginx:latest
-ARG kafka_url=local
-ENV kafka_url ${kafka_url}
+# ARG kafka_url=local
+ENV kafka_url "someurl"
 WORKDIR /usr/share/nginx/html
 COPY . .
-RUN ["sh", "env.sh"]
+
+# ENTRYPOINT ["/usr/share/nginx/html/env.sh"]
+# CMD ["sh", "/usr/share/nginx/html/env.sh"]
+# RUN ["sh", "env.sh"]
